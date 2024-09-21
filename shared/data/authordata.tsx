@@ -1,4 +1,4 @@
-import { Authors } from "@/types";
+import { Authors } from "@/shared/types";
 
 export const authorsList: Authors[] = [
   {

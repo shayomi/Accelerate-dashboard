@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaEye, FaPencilAlt } from "react-icons/fa";
-import { eventsData } from "./eventData";
+import { eventsData } from "@/shared/data/eventData";
 
 const Events = () => {
   const [searchTerm, setSearchTerm] = useState("");

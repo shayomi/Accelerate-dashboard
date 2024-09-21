@@ -1,4 +1,5 @@
-import { Article } from "@/types";
+import React from "react";
+import { Article } from "@/shared/types";
 
 export const articlesData: Article[] = [
   {

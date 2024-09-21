@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Partner } from "@/types";
+import { Partner } from "@/shared/types";
 import Seo from "@/shared/layout-components/seo/seo";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
 
@@ -8,6 +8,10 @@ interface PartnerDetailsProps {
 }
 
 const PartnerDetails: React.FC<PartnerDetailsProps> = ({ partner }) => {
+  if (!partner) {
+    return <p>Loading cohort details...</p>; // Or a better fallback message
+  }
+
   return (
     <Fragment>
       <Seo title="Cohorts Management" />

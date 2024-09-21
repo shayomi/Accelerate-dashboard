@@ -4,17 +4,17 @@ import Pageheader from "@/shared/layout-components/page-header/pageheader";
 import Seo from "@/shared/layout-components/seo/seo";
 import React, { useState, ChangeEvent, Fragment } from "react";
 
-type Startup = {
+interface Startup {
   id: number;
   name: string;
   industry: string;
-};
+}
 
-type Advisor = {
+interface Advisor {
   id: number;
   name: string;
   focusArea: string;
-};
+}
 
 const AdvisorAssignment = () => {
   const [searchStartups, setSearchStartups] = useState("");

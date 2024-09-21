@@ -1,9 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Article } from "@/types";
+import { Article } from "@/shared/types";
 
 import CreateArticle from "@/pages/components/article/createarticle";
-import { articlesData } from "@/pages/components/article/articledata";
+import { articlesData } from "@/shared/data/articledata";
 
 const EditArticlePage = () => {
   const router = useRouter();

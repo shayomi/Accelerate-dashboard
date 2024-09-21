@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Partner } from "@/types";
+import { Partner } from "@/shared/types";
 import { useRouter } from "next/router";
 import Seo from "@/shared/layout-components/seo/seo";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";

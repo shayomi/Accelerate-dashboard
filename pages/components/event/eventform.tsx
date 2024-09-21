@@ -1,10 +1,10 @@
 "use client";
 
 import React, { Fragment, useState, useEffect } from "react";
-import { Event, Speaker } from "@/types";
+import { Event, Speaker } from "@/shared/types";
 import Seo from "@/shared/layout-components/seo/seo";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
-import { speakersData } from "./speakerdata";
+import { speakersData } from "../../../shared/data/speakerdata";
 
 interface EventFormProps {
   eventData?: Event;

@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import React, { useState } from "react";
-import { Event } from "./eventData";
+import { Event } from "@/shared/data/eventData";
 
 interface CreateEditEventProps {
   event?: Event; // Optional for edit mode

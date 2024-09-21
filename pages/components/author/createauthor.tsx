@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
-import { Authors } from "@/types";
-import { articlesData } from "../article/articledata";
+import { Authors } from "@/shared/types";
+import { articlesData } from "../../../shared/data/articledata";
 import Seo from "@/shared/layout-components/seo/seo";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
 

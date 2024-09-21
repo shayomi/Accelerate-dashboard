@@ -1,13 +1,11 @@
-import React from "react";
-
-export type Founder = {
+export interface Founder {
   name: string;
   role: string;
   linkedin: string;
   image: string;
-};
+}
 
-export type Startup = {
+export interface Startupdata {
   id: string;
   companyName: string;
   industry: string;
@@ -30,29 +28,29 @@ export type Startup = {
   pitchDeckLink: string;
   calendlyLink: string;
   status: string;
-};
+}
 
 // types.ts
-export type Industry = {
+export interface Industry {
   id: number;
   name: string;
   slug?: string;
   startupIds: number[];
-};
+}
 
-export type Advisor = {
+export interface Advisor {
   name: string;
-  focusAreas: string[]; // Updated to store multiple focus areas
+  focusAreas: string[];
   companyName: string;
   location: string;
-  bio?: string;
-  linkedin?: string;
-  twitter?: string;
-  image?: string; // Optional image URL or File path
-};
+  bio: string;
+  linkedin: string;
+  twitter: string;
+  image: string;
+}
 
 // types.ts
-export type Meeting = {
+export interface Meeting {
   id: string;
   date: string;
   time: string;
@@ -61,20 +59,20 @@ export type Meeting = {
   status: string;
   summary?: string;
   notes?: string;
-};
+}
 
-export type Cohort = {
+export interface Cohort {
   id: string;
   name: string;
   shortName: string;
   startDate: string;
   endDate: string;
   description: string;
-  startups: Startup[];
+  startups: Startupdata[];
   schedule: string;
-};
+}
 
-export type Partner = {
+export interface Partner {
   id: string;
   name: string;
   type: string;
@@ -86,15 +84,15 @@ export type Partner = {
     phone: string;
     address: string;
   };
-};
+}
 
 // types.ts
-export type Author = {
+export interface Author {
   id: number;
   name: string;
-};
+}
 
-export type Article = {
+export interface Article {
   id: number;
   title: string;
   slug: string;
@@ -106,26 +104,26 @@ export type Article = {
   featured: boolean;
   authors: Author[];
   status: string;
-};
+}
 
-export type Authors = {
+export interface Authors {
   id: number;
   firstName: string;
   lastName: string;
   profilePic: string;
   articles: { id: number; title: string }[]; // Array of article objects with IDs and titles
-};
+}
 
 // types.ts
 
-export type Speaker = {
+export interface Speaker {
   id: number;
   name: string;
   bio?: string;
   profilePic?: string;
-};
+}
 
-export type Event = {
+export interface Event {
   id: number;
   name?: string;
   slug?: string;
@@ -142,4 +140,4 @@ export type Event = {
   relatedCohort?: string;
   registrationFields?: string[];
   status: "draft" | "published";
-};
+}

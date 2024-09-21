@@ -1,4 +1,4 @@
-import { Founder } from "@/types";
+import { Founder } from "@/shared/types";
 import React from "react";
 
 type Props = {
@@ -6,6 +6,10 @@ type Props = {
 };
 
 const StartupFounders: React.FC<Props> = ({ founders }) => {
+  if (!founders) {
+    // Render a 404 page or any fallback UI
+    return <div>Startup not found</div>;
+  }
   return (
     <section className="p-6">
       <h5 className="mb-5 font-medium text-xl">Founders</h5>

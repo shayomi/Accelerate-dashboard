@@ -1,9 +1,9 @@
-import { Industry } from "@/types";
+import { Industry } from "@/shared/types";
 import React, { useState, useEffect, Fragment } from "react";
 
 interface ManageIndustryProps {
-  industryData?: Industry; // Optional prop to receive industry data for editing
-  startupOptions: string[]; // List of startup names
+  industryData?: Industry;
+  startupOptions: string[];
 }
 
 const ManageIndustry = ({
@@ -13,7 +13,9 @@ const ManageIndustry = ({
   const [name, setName] = useState(industryData?.name || "");
   const [slug, setSlug] = useState(industryData?.slug || "");
   const [selectedStartups, setSelectedStartups] = useState<string[]>(
-    industryData?.startupIds.map((id) => id.toString()) || []
+    industryData?.startupIds
+      ? industryData.startupIds.map((id) => id.toString())
+      : []
   );
 
   useEffect(() => {

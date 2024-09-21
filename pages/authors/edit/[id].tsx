@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import { Authors } from "@/types";
-import { authorsList } from "@/pages/components/author/authordata";
+import { Authors } from "@/shared/types";
+import { authorsList } from "@/shared/data/authordata";
 import AuthorForm from "@/pages/components/author/createauthor";
 
 const EditAuthorPage = () => {

@@ -1,4 +1,4 @@
-import { Cohort } from "@/types";
+import { Cohort } from "@/shared/types";
 
 export const cohortsList: Cohort[] = [
   {

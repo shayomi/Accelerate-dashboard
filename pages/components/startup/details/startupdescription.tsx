@@ -1,13 +1,17 @@
 import React from "react";
 import AdvisorsList from "./advisorslist";
 import StartupFounders from "./StartupFounders";
-import { Startup } from "@/types";
+import { Startupdata } from "@/shared/types";
 
-type Props = {
-  startup: Startup;
-};
+interface StartupProps {
+  startup: Startupdata;
+}
 
-const StartupDescription: React.FC<Props> = ({ startup }) => {
+const StartupDescription = ({ startup }: StartupProps) => {
+  if (!startup) {
+    return <div>Startup not found</div>;
+  }
+
   return (
     <div className="flex flex-col md:flex-row gap-6">
       <div className="box flex flex-col w-full md:w-[55%] gap-6 p-6">

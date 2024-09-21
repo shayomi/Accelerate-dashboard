@@ -1,7 +1,7 @@
 import React, { ChangeEvent, Fragment, useState, useEffect } from "react";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
 import Seo from "@/shared/layout-components/seo/seo";
-import { Advisor } from "@/types";
+import { Advisor } from "@/shared/types";
 
 interface CreateAdvisorProps {
   advisorData?: Advisor;

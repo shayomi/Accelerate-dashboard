@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import Seo from "@/shared/layout-components/seo/seo";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
-import { Article } from "@/types";
+import { Article } from "@/shared/types";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 

@@ -1,19 +1,30 @@
-// components/advisors/AdvisorDetails.tsx
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
 import Seo from "@/shared/layout-components/seo/seo";
-import { Advisor } from "@/types";
+import { Advisor } from "@/shared/types";
 import React, { Fragment } from "react";
 
 interface AdvisorDetailsProps {
-  advisor: Advisor;
+  advisor: {
+    name: string;
+    focusAreas: string[];
+    companyName: string;
+    location: string;
+    bio: string;
+    linkedin: string;
+    twitter: string;
+    image: string;
+  };
 }
 
-const AdvisorDetails: React.FC<AdvisorDetailsProps> = ({ advisor }) => {
+const AdvisorDetails = ({ advisor }: AdvisorDetailsProps) => {
+  if (!advisor) {
+    return <p>No advisor data available</p>; // Handle missing advisor
+  }
   return (
     <Fragment>
-      <Seo title={`Advisor - ${advisor.name}`} />
+      <Seo title="Advisor Management" />
       <Pageheader
-        currentpage={advisor.name}
+        currentpage="Advisor details"
         activepage="Advisors List"
         mainpage="Advisors"
       />
@@ -21,13 +32,15 @@ const AdvisorDetails: React.FC<AdvisorDetailsProps> = ({ advisor }) => {
         <div className="flex flex-col items-center md:flex-row md:items-start">
           <div className="flex-shrink-0">
             <img
-              src={advisor.image}
-              alt={advisor.name}
+              src={advisor.image || "/default-image.png"} // Fallback image
+              alt={advisor.name || "Advisor Name"}
               className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-gray-200 shadow-md"
             />
           </div>
           <div className="md:ml-6">
-            <h1 className="text-xl font-bold text-gra mb-2">{advisor.name}</h1>
+            <h1 className="text-xl font-bold text-gra mb-2">
+              {advisor.name || "N/A"}
+            </h1>
             <p className="text-sm text-gray-700 mb-4">{advisor.bio}</p>
             <div className="space-y-4">
               <div>

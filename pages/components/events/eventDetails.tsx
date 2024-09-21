@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import React from "react";
-import { eventsData } from "./eventData"; // Import your event data here
+import { eventsData } from "@/shared/data/eventData";
 import { useRouter } from "next/router";
 
 const EventDetails = () => {

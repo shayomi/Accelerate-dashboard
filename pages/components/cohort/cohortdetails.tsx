@@ -1,13 +1,17 @@
 import React, { Fragment } from "react";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
 import Seo from "@/shared/layout-components/seo/seo";
-import { Cohort } from "@/types";
+import { Cohort } from "@/shared/types";
 
 interface CohortDetailProps {
   cohort: Cohort;
 }
 
 const CohortDetail: React.FC<CohortDetailProps> = ({ cohort }) => {
+  if (!cohort) {
+    return <p>Loading cohort details...</p>; // Or a better fallback message
+  }
+
   return (
     <Fragment>
       <Seo title={`Cohort Details - ${cohort.name}`} />

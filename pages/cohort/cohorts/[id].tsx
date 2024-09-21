@@ -1,9 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Cohort } from "@/types";
+import { Cohort } from "@/shared/types";
 import cohorts from "@/pages/components/cohort/cohorts";
 import CohortDetail from "@/pages/components/cohort/cohortdetails";
-import { cohortsList } from "@/pages/components/cohort/cohortsdata";
+import { cohortsList } from "@/shared/data/cohortsdata";
 
 const CohortDetailPage = () => {
   const router = useRouter();

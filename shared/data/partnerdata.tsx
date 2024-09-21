@@ -1,4 +1,4 @@
-import { Partner } from "@/types";
+import { Partner } from "@/shared/types";
 
 export const partners: Partner[] = [
   {
@@ -16,7 +16,7 @@ export const partners: Partner[] = [
   },
 
   {
-    id: "1",
+    id: "2",
     name: "TechCorp",
     type: "Corporate",
     status: "Active",
@@ -29,7 +29,7 @@ export const partners: Partner[] = [
     },
   },
   {
-    id: "1",
+    id: "3",
     name: "TechCorp",
     type: "Corporate",
     status: "Active",
