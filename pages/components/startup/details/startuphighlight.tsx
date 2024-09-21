@@ -1,5 +1,5 @@
 import { Startupdata } from "@/shared/types";
-import React from "react";
+import React, { Fragment } from "react";
 
 interface StartupProps {
   startup: Startupdata;
@@ -10,7 +10,7 @@ const StartupHighlight = ({ startup }: StartupProps) => {
     return <div>Startup not found</div>;
   }
   return (
-    <section className="bg-[#E3E4E8] hs-dark-mode-active:bg-[#1a1e25] p-6">
+    <Fragment>
       <div className="flex flex-col gap-4">
         <div className="flex flex-col items-center justify-center mx-auto gap-4">
           <img
@@ -27,43 +27,31 @@ const StartupHighlight = ({ startup }: StartupProps) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-end gap-4 mt-8">
-          <div className="col-span-full sm:col-span-1 bg-[#f9f8ee] rounded-[8px]">
+          <div className="col-span-full sm:col-span-1 rounded border-secondary border rounded-[8px]">
             <div className="p-4">
-              <div className="hs-dark-mode-active:!text-black">
-                <span className="mr-2 font-semibold hs-dark-mode-active:!text-black">
-                  Headquarters:
-                </span>
-                <span className="font-normal text-black/50 hs-dark-mode-active:!text-black">
-                  {startup.location.city}
-                </span>
+              <div className="text-sm">
+                <span className="mr-2 font-semibold">Headquarters:</span>
+                <span className="font-normal ">{startup.location.city}</span>
               </div>
 
-              <div className="mt-2">
-                <span className="mr-2 font-semibold hs-dark-mode-active:!text-black">
-                  Company Size:
-                </span>
-                <span className="font-normal text-black/50 hs-dark-mode-active:!text-black">
+              <div className="mt-2 text-sm">
+                <span className="mr-2 font-semibold">Company Size:</span>
+                <span className="font-normal">
                   {startup.companySize} employees
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="col-span-full sm:col-span-1 bg-[#f9f8ee] rounded-[8px]">
+          <div className="col-span-full sm:col-span-1 rounded border-secondary border rounded-[8px]">
             <div className="p-4">
-              <div>
-                <span className="mr-2 font-semibold hs-dark-mode-active:!text-black">
-                  Email:
-                </span>
-                <span className="font-normal text-black/50 hs-dark-mode-active:!text-black">
-                  {startup.companyEmail}
-                </span>
+              <div className="text-sm">
+                <span className="mr-2 font-semibold">Email:</span>
+                <span className="font-normal">{startup.companyEmail}</span>
               </div>
 
               <div className="mt-2">
-                <span className="mr-2 font-semibold hs-dark-mode-active:!text-black">
-                  Website:
-                </span>
+                <span className="mr-2 font-semibold">Website:</span>
                 <span className="font-normal text-accent hover:underline hs-dark-mode-active:!text-primary">
                   <a
                     href={startup.website}
@@ -77,30 +65,22 @@ const StartupHighlight = ({ startup }: StartupProps) => {
             </div>
           </div>
 
-          <div className="col-span-full sm:col-span-1 bg-[#f9f8ee] rounded-[8px]">
+          <div className="col-span-full sm:col-span-1 rounded border-secondary border rounded-[8px]">
             <div className="p-4">
               <div>
-                <span className="mr-2 font-semibold hs-dark-mode-active:!text-black">
-                  Founded:
-                </span>
-                <span className="font-normal text-black/50 hs-dark-mode-active:!text-black">
-                  {startup.founded}
-                </span>
+                <span className="mr-2 text-sm">Founded:</span>
+                <span className="font-normal text-sm">{startup.founded}</span>
               </div>
 
               <div className="mt-2">
-                <span className="mr-2 font-semibold hs-dark-mode-active:!text-black">
-                  Industry:
-                </span>
-                <span className="font-normal text-black/50 hs-dark-mode-active:!text-black">
-                  {startup.industry}
-                </span>
+                <span className="mr-2">Industry:</span>
+                <span className="font-normal text-sm">{startup.industry}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </Fragment>
   );
 };
 

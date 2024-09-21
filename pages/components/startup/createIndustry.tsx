@@ -110,7 +110,7 @@ const ManageIndustry = ({
                   <span>{startup}</span>
                   <button
                     type="button"
-                    className="text-red-500"
+                    className="text-danger"
                     onClick={() => removeStartup(startup)}
                   >
                     &times;

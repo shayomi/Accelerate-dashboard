@@ -46,80 +46,74 @@ const Userdetails: React.FC<UserDetailsProps> = ({ user }) => {
         activepage="Dashboards"
         mainpage="User Management"
       />
-      <div className="container mx-auto px-4 py-8 hs-dark-mode-active:!text-white">
-        {/* Header */}
-        <div className="box p-6 rounded-md mb-6">
-          {/* Top Row */}
-          <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl font-bold text-gray-800 hs-dark-mode-active:text-white">
-              {user.firstName} {user.lastName}
-            </h1>
-            <div className="flex items-center space-x-4">
-              <p className="text-sm text-gray-600">
-                <strong>Email:</strong> {user.email}
-              </p>
-              <div className="flex items-center space-x-2">
-                <span
-                  className={`w-3 h-3 rounded-full ${
-                    user.status === "Active" ? "bg-green-500" : "bg-red-500"
-                  }`}
-                ></span>
-                <p className="text-sm text-gray-600">
-                  <strong>Status:</strong> {user.status}
+      <div className="box custom-card">
+        <div className="box-body">
+          {/* Header */}
+          <div className="bg-light p-6 rounded-md mb-6">
+            {/* Top Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-3">
+                <h1 className="text-md font-bold">
+                  {user.firstName} {user.lastName}
+                </h1>
+                <p className="text-sm">User ID: {user.id}</p>
+              </div>
+
+              <div className="flex flex-col gap-3 items-start">
+                <p className="text-sm">
+                  <strong>Email:</strong> {user.email}
                 </p>
+                <div className=" ">
+                  <span
+                    className={`w-3 h-3 rounded-full ${
+                      user.status === "Active" ? "bg-success-full" : "bg-danger"
+                    }`}
+                  ></span>
+                  <p className="text-sm ">
+                    <strong>Status:</strong> {user.status}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <p className="text-sm text-gray-500">User ID: {user.id}</p>
         </div>
 
         {/* Dashboard Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Personal Information */}
-          <div className="box p-6 rounded-md">
-            <h2 className="text-xl font-semibold text-gray-800 hs-dark-mode-active:text-white mb-4">
-              Personal Information
-            </h2>
-            <div className="mb-2">
-              <p className="text-sm text-gray-600">
-                <strong>Email:</strong> {user.email}
-              </p>
-            </div>
-            <div className="mb-2">
-              <p className="text-sm text-gray-600">
-                <strong>Status:</strong> {user.status}
-              </p>
-            </div>
-          </div>
+        <div className="box-body rounded-md">
+          <div className="">
+            {/* Associated Entities */}
+            <div className=" md:col-span-2">
+              <h2 className="text-xl font-semibold">Associated Entities</h2>
 
-          {/* Associated Entities */}
-          <div className="box p-6 rounded-md md:col-span-2">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4 hs-dark-mode-active:text-white">
-              Associated Entities
-            </h2>
-            <div className="mb-2">
-              <p className="text-sm text-gray-600">
-                <strong>Investors:</strong>{" "}
-                {user.associatedEntities.investors?.join(", ") || "None"}
-              </p>
-            </div>
-            <div className="mb-2">
-              <p className="text-sm text-gray-600">
-                <strong>Advisors:</strong>{" "}
-                {user.associatedEntities.advisors?.join(", ") || "None"}
-              </p>
-            </div>
-            <div className="mb-2">
-              <p className="text-sm text-gray-600">
-                <strong>Partners:</strong>{" "}
-                {user.associatedEntities.partners?.join(", ") || "None"}
-              </p>
-            </div>
-            <div className="mb-2">
-              <p className="text-sm text-gray-600">
-                <strong>Founders:</strong>{" "}
-                {user.associatedEntities.founders?.join(", ") || "None"}
-              </p>
+              <div className="overflow-x-auto">
+                <table className="table min-w-full whitespace-nowrap table-hover border table-bordered">
+                  <thead>
+                    <tr className="border border-inherit border-solid dark:border-defaultborder/10">
+                      <th className="!text-start !text-[0.85rem]">Investors</th>
+                      <th className="!text-start !text-[0.85rem]">Advisors</th>
+                      <th className="!text-start !text-[0.85rem]">Partners</th>
+                      <th className="!text-start !text-[0.85rem]">Founders</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border border-inherit border-solid dark:border-defaultborder/10">
+                      <td className="!ps-4 !pe-5">
+                        {user.associatedEntities.investors?.join(", ") ||
+                          "None"}
+                      </td>
+                      <td className="!ps-4 !pe-5">
+                        {user.associatedEntities.advisors?.join(", ") || "None"}
+                      </td>
+                      <td className="!ps-4 !pe-5">
+                        {user.associatedEntities.partners?.join(", ") || "None"}
+                      </td>
+                      <td className="!ps-4 !pe-5">
+                        {user.associatedEntities.founders?.join(", ") || "None"}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -129,22 +123,21 @@ const Userdetails: React.FC<UserDetailsProps> = ({ user }) => {
           <h2 className="text-xl font-semibold text-gray-800 mb-4 hs-dark-mode-active:text-white">
             Activity Log
           </h2>
-          <table className="min-w-full text-left table-auto">
+          <table className="table min-w-full whitespace-nowrap table-hover border table-bordered">
             <thead>
-              <tr>
-                <th className="px-4 py-2 border-b-2 border-gray-200">Date</th>
-                <th className="px-4 py-2 border-b-2 border-gray-200">Action</th>
+              <tr className="border border-inherit border-solid dark:border-defaultborder/10">
+                <th className="!text-start !text-[0.85rem]">Date</th>
+                <th className="!text-start !text-[0.85rem]">Action</th>
               </tr>
             </thead>
             <tbody>
               {user.activityLog.map((activity, index) => (
-                <tr key={index}>
-                  <td className="px-4 py-2 border-b border-gray-200 text-gray-600">
-                    {activity.date}
-                  </td>
-                  <td className="px-4 py-2 border-b border-gray-200 text-gray-600">
-                    {activity.action}
-                  </td>
+                <tr
+                  key={index}
+                  className="border border-inherit border-solid dark:border-defaultborder/10"
+                >
+                  <td className="ps-4 !pe-5">{activity.date}</td>
+                  <td className="ps-4 !pe-5">{activity.action}</td>
                 </tr>
               ))}
             </tbody>
@@ -152,8 +145,8 @@ const Userdetails: React.FC<UserDetailsProps> = ({ user }) => {
         </div>
 
         {/* Edit User Button */}
-        <div className="flex justify-end mt-6">
-          <button className="border-[1px] bg-transparent text-primary border-primary py-2 px-4 rounded-md transition">
+        <div className="flex justify-end mt-6 p-8">
+          <button className="ti-btn ti-btn-warning-full ti-btn-lg">
             <Link href={`/users/edit/${user.id}`}>edit user</Link>
           </button>
         </div>

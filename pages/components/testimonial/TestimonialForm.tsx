@@ -110,10 +110,7 @@ const TestimonialForm = ({
             </div>
 
             <div className="mt-6">
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-danger px-4 py-2 rounded-md hover:bg-blue-600 transition"
-              >
+              <button type="submit" className="ti-btn ti-btn-lg ti-btn-success">
                 {testimonialData ? "Update Testimonial" : "Create Testimonial"}
               </button>
             </div>

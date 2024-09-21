@@ -3723,7 +3723,7 @@ label {
 /* Start:: Profile */
 .main-profile-cover {
   @apply bg-[url("/assets/images/media/team-covers/4.jpg")] bg-cover bg-center bg-no-repeat relative z-[9]
-  before:absolute before:w-full before:h-full before:bg-primary/80 before:inset-0;
+  before:absolute before:w-full before:h-full before:inset-0;
 }
 
 .main-profile-info {

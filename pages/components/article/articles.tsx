@@ -154,12 +154,6 @@ const Articles = () => {
                     </td>
                     <td className="px-4 py-2 border-b flex flex-row gap-6 items-center">
                       <Link
-                        href={`/articles/${article.id}`}
-                        className="ti-btn ti-btn-md ti-btn-secondary !me-[0.375rem]"
-                      >
-                        <FaEye size={20} />
-                      </Link>
-                      <Link
                         href={`/articles/edit/${article.id}`}
                         className="ti-btn ti-btn-md ti-btn-warning !me-[0.375rem]"
                       >

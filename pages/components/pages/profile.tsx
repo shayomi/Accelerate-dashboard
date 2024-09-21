@@ -22,7 +22,7 @@ const Profile = () => {
         <div className="xxl:col-span-4 xl:col-span-12 col-span-12">
           <div className="box overflow-hidden">
             <div className="box-body !p-0">
-              <div className="sm:flex items-start p-6      main-profile-cover">
+              <div className="sm:flex items-start p-6 main-profile-cover">
                 <div>
                   <span className="avatar avatar-xxl avatar-rounded online me-4">
                     <img src="../../../assets/images/faces/9.jpg" alt="" />

@@ -21,64 +21,73 @@ const CohortDetail: React.FC<CohortDetailProps> = ({ cohort }) => {
         mainpage="Cohort Management"
       />
 
-      <div className="container mx-auto p-6 shadow-lg rounded-lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className="flex flex-col">
-            <span className="text-md font-semibold">Name:</span>
-            <p className="text-sm">{cohort.name}</p>
+      <div className="box custom-card">
+        <div className="box-body">
+          <div className="bg-secondary rounded-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 p-6">
+              <div className="flex flex-col">
+                <span className="text-lg font-bold">Name:</span>
+                <p className="text-sm">{cohort.name}</p>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold">Short Name:</span>
+                <p className="text-sm text-black bg-yellow px-2 py-1 rounded-md w-[80px]">
+                  {cohort.shortName}
+                </p>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold">Start Date:</span>
+                <p className="text-sm">{cohort.startDate}</p>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold">End Date:</span>
+                <p className="text-sm">{cohort.endDate}</p>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-md">Short Name:</span>
-            <p className="text-sm text-black bg-yellow px-2 py-1 rounded-md w-[80px]">
-              {cohort.shortName}
-            </p>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-md">Start Date:</span>
-            <p className="text-sm">{cohort.startDate}</p>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-md font-semibold">End Date:</span>
-            <p className="text-sm">{cohort.endDate}</p>
-          </div>
-        </div>
 
-        <div className="mb-6">
-          <h2 className="text-lg font-bold">Description</h2>
-          <p className="text-sm">{cohort.description}</p>
-        </div>
+          <div className="mb-6">
+            <h2 className="text-lg font-bold">Description</h2>
+            <p className="text-sm">{cohort.description}</p>
+          </div>
 
-        <div className="mb-6">
-          <h2 className="text-md font-bold mb-4">Enrolled Startups</h2>
-          <table className="min-w-full">
-            <thead className="">
-              <tr>
-                <th className="px-6 py-3 text-left text-sm font-medium">
-                  Startup Name
-                </th>
-                <th className="px-6 py-3 text-left text-sm font-medium ">
-                  Industry
-                </th>
-              </tr>
-            </thead>
-            <tbody className="">
-              {cohort.startups.map((startup) => (
-                <tr key={startup.id}>
-                  <td className="px-6 py-3 whitespace-nowrap text-sm">
-                    {startup.companyName}
-                  </td>
-                  <td className="px-6 py-3 whitespace-nowrap text-sm ">
-                    {startup.industry}
-                  </td>
+          <div className="mb-6">
+            <h2 className="text-md font-bold mb-4">Enrolled Startups</h2>
+            <table className="table min-w-full whitespace-nowrap table-hover border table-bordered">
+              <thead className="">
+                <tr>
+                  <th className="px-6 py-3 text-left text-sm font-medium">
+                    Startup Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-sm font-medium ">
+                    Industry
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody className="">
+                {cohort.startups.map((startup) => (
+                  <tr
+                    key={startup.id}
+                    className="border border-inherit border-solid hover:bg-gray-100 dark:border-defaultborder/10 dark:hover:bg-light"
+                  >
+                    <td className="px-6 py-3 whitespace-nowrap text-sm">
+                      {startup.companyName}
+                    </td>
+                    <td className="px-6 py-3 whitespace-nowrap text-sm ">
+                      {startup.industry}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-        <div className="mb-6">
-          <h2 className="text-md font-bold mb-4">Program Schedule Overview</h2>
-          <p className="text-sm">{cohort.schedule}</p>
+          <div className="mb-6">
+            <h2 className="text-md font-bold mb-4">
+              Program Schedule Overview
+            </h2>
+            <p className="text-sm">{cohort.schedule}</p>
+          </div>
         </div>
       </div>
     </Fragment>

@@ -162,10 +162,7 @@ const AuthorForm = ({ authorData, onSubmit }: AuthorFormProps) => {
             </div>
 
             <div className="mt-6">
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-sm px-4 py-2 rounded-md hover:bg-blue-600 transition"
-              >
+              <button type="submit" className="ti-btn ti-btn-lg ti-btn-success">
                 {authorData ? "Update Author" : "Create Author"}
               </button>
             </div>

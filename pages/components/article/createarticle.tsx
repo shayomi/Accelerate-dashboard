@@ -183,7 +183,7 @@ const CreateArticle = ({ article }: CreateArticleProps) => {
             {selectedAuthors.map((author) => (
               <div
                 key={author.id}
-                className="flex items-center justify-between p-2 bg-gray-100 rounded mb-2"
+                className="flex items-center justify-between p-2 bg-info rounded mb-2"
               >
                 <span>{author.name}</span>
                 <button
@@ -206,7 +206,7 @@ const CreateArticle = ({ article }: CreateArticleProps) => {
           <ReactQuill
             value={content}
             onChange={setContent}
-            className="form-control mt-1"
+            className="form-control bg-gray-50"
             theme="snow"
           />
         </div>

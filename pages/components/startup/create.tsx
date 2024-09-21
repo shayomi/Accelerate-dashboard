@@ -2,6 +2,7 @@ import Pageheader from "@/shared/layout-components/page-header/pageheader";
 import Seo from "@/shared/layout-components/seo/seo";
 import React, { ChangeEvent, Fragment, useState, useEffect } from "react";
 import { Startupdata, Founder } from "@/shared/types";
+import { FaTimes } from "react-icons/fa";
 
 interface CreateStartupProps {
   startupData?: Startupdata;
@@ -123,13 +124,10 @@ const CreateStartup = ({ startupData }: CreateStartupProps) => {
       <div className="">
         <div className="col-span-12">
           <div className="flex flex-row gap-4 justify-end">
-            <button type="button" className="ti-btn ti-btn-primary-full">
+            <button type="button" className="ti-btn ti-btn-success ti-btn-lg">
               Save
             </button>
-            <button
-              type="button"
-              className="ti-btn bg-yellow ti-btn-yellow-full"
-            >
+            <button type="button" className="ti-btn ti-btn-primary ti-btn-lg">
               Publish
             </button>
           </div>
@@ -344,7 +342,7 @@ const CreateStartup = ({ startupData }: CreateStartupProps) => {
             </div>
 
             {/* Industries */}
-            <div className="md:col-span-12 col-span-12 mb-4">
+            <div className="md:col-span-6 col-span-6 mb-4">
               <label className="form-label">Industries</label>
               <select className="form-control" onChange={handleIndustryChange}>
                 <option value="">Select industry</option>
@@ -356,14 +354,17 @@ const CreateStartup = ({ startupData }: CreateStartupProps) => {
               </select>
               <ul className="mt-2">
                 {selectedIndustries.map((industry) => (
-                  <li key={industry} className="flex justify-between">
+                  <li
+                    key={industry}
+                    className="flex justify-between px-4 py-2 rounded-sm bg-success"
+                  >
                     {industry}
                     <button
                       type="button"
                       onClick={() => removeIndustry(industry)}
-                      className="text-red-500"
+                      className="text-danger"
                     >
-                      Remove
+                      <FaTimes />
                     </button>
                   </li>
                 ))}
@@ -371,7 +372,7 @@ const CreateStartup = ({ startupData }: CreateStartupProps) => {
             </div>
 
             {/* Founders */}
-            <div className="md:col-span-12 col-span-12 mb-4">
+            <div className="md:col-span-6 col-span-6 mb-4">
               <label className="form-label">Founders</label>
               <select className="form-control" onChange={handleFounderChange}>
                 <option value="">Select founder</option>
@@ -383,14 +384,17 @@ const CreateStartup = ({ startupData }: CreateStartupProps) => {
               </select>
               <ul className="mt-2">
                 {selectedFounders.map((founder) => (
-                  <li key={founder.name} className="flex justify-between">
+                  <li
+                    key={founder.name}
+                    className="flex justify-between px-4 py-2 rounded-sm bg-success"
+                  >
                     {founder.name}
                     <button
                       type="button"
                       onClick={() => removeFounder(founder)}
-                      className="text-red-500"
+                      className="text-danger"
                     >
-                      Remove
+                      <FaTimes />
                     </button>
                   </li>
                 ))}

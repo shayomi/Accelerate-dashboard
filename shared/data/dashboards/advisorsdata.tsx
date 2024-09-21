@@ -9,7 +9,7 @@ export const AdvisorList: Advisor[] = [
     bio: "Experienced startup mentor with a background in technology and business growth strategies.",
     linkedin: "https://www.linkedin.com/in/andrewgarfield",
     twitter: "https://twitter.com/andrewgarfield",
-    image: "path/to/andrew-image.jpg",
+    image: "/assets/images/p2.png",
   },
   {
     name: "Alice Johnson",
@@ -19,7 +19,7 @@ export const AdvisorList: Advisor[] = [
     bio: "Marketing expert with a focus on tech startups, helping them build brand awareness and market presence.",
     linkedin: "https://www.linkedin.com/in/alicejohnson",
     twitter: "https://twitter.com/alicejohnson",
-    image: "path/to/alice-image.jpg",
+    image: "/assets/images/p3.png",
   },
   {
     name: "Michael Smith",
@@ -29,7 +29,7 @@ export const AdvisorList: Advisor[] = [
     bio: "Finance advisor with extensive experience in corporate finance and investment strategies.",
     linkedin: "https://www.linkedin.com/in/michaelsmith",
     twitter: "https://twitter.com/michaelsmith",
-    image: "path/to/michael-image.jpg",
+    image: "/assets/images/p2.png",
   },
   {
     name: "Sarah Lee",
@@ -39,7 +39,7 @@ export const AdvisorList: Advisor[] = [
     bio: "Leadership and business strategy advisor helping companies develop effective leadership practices.",
     linkedin: "https://www.linkedin.com/in/sarahlee",
     twitter: "https://twitter.com/sarahlee",
-    image: "path/to/sarah-image.jpg",
+    image: "/assets/images/p2.png",
   },
   {
     name: "John Doe",
@@ -49,6 +49,6 @@ export const AdvisorList: Advisor[] = [
     bio: "Technology advisor and startup mentor, guiding tech startups through the complexities of scaling and innovation.",
     linkedin: "https://www.linkedin.com/in/johndoe",
     twitter: "https://twitter.com/johndoe",
-    image: "path/to/john-image.jpg",
+    image: "/assets/images/p2.png",
   },
 ];
