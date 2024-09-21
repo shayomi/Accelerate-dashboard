@@ -10,12 +10,23 @@ const ManageIndustry = ({
   industryData,
   startupOptions,
 }: ManageIndustryProps) => {
-  const [name, setName] = useState(industryData?.name || "");
-  const [slug, setSlug] = useState(industryData?.slug || "");
+  // Default data in case industryData is undefined
+  const defaultIndustryData: Industry = {
+    id: 0,
+    name: "",
+    slug: "",
+    startupIds: [],
+  };
+
+  const validIndustryData = industryData || defaultIndustryData;
+
+  // Safeguard for startupOptions
+  const validStartupOptions = startupOptions || [];
+
+  const [name, setName] = useState(validIndustryData.name);
+  const [slug, setSlug] = useState(validIndustryData.slug || "");
   const [selectedStartups, setSelectedStartups] = useState<string[]>(
-    industryData?.startupIds
-      ? industryData.startupIds.map((id) => id.toString())
-      : []
+    validIndustryData.startupIds?.map((id) => id.toString()) || []
   );
 
   useEffect(() => {
@@ -79,11 +90,16 @@ const ManageIndustry = ({
               <option value="" disabled>
                 Select startups
               </option>
-              {startupOptions.map((startup, idx) => (
-                <option key={idx} value={startup}>
-                  {startup}
-                </option>
-              ))}
+              {/* Ensure startupOptions is an array */}
+              {validStartupOptions.length > 0 ? (
+                validStartupOptions.map((startup, idx) => (
+                  <option key={idx} value={startup}>
+                    {startup}
+                  </option>
+                ))
+              ) : (
+                <option disabled>No Startups Available</option>
+              )}
             </select>
             <div className="mt-2">
               {selectedStartups.map((startup, idx) => (

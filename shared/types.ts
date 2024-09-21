@@ -32,7 +32,7 @@ export interface Startupdata {
 
 // types.ts
 export interface Industry {
-  id: number;
+  id: number | null;
   name: string;
   slug?: string;
   startupIds: number[];

@@ -1,10 +1,10 @@
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
 import Seo from "@/shared/layout-components/seo/seo";
 import React, { ChangeEvent, Fragment, useState, useEffect } from "react";
-import { Startupdata, Founder } from "@/shared/types"; // Adjust import path as needed
+import { Startupdata, Founder } from "@/shared/types";
 
 interface CreateStartupProps {
-  startupData?: Startupdata; // Optional prop to receive startup data for editing
+  startupData?: Startupdata;
 }
 
 const CreateStartup = ({ startupData }: CreateStartupProps) => {

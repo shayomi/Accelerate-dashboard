@@ -3,15 +3,22 @@ import { StartupsList } from "@/shared/data/dashboards/startupsdata";
 import React from "react";
 
 const CreateIndustryPage = () => {
-  const startupOptions = StartupsList.map((startup) => startup.companyName);
+  // Ensure startups list is correctly initialized
+  const startupOptions =
+    StartupsList?.map((startup) => startup.companyName) || [];
+
+  // Valid industry data structure
+  const industryData = { id: 0, name: "", slug: "", startupIds: [] };
 
   return (
     <div>
-      <ManageIndustry startupOptions={startupOptions} />
+      <ManageIndustry
+        startupOptions={startupOptions}
+        industryData={industryData}
+      />
     </div>
   );
 };
 
 CreateIndustryPage.layout = "Contentlayout";
-
 export default CreateIndustryPage;
