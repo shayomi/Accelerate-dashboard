@@ -59,7 +59,7 @@ const Events = () => {
               <option value="Ongoing">Kenya</option>
             </select>
           </div>
-          <button className="bg-green text-white py-2 px-4 rounded-md">
+          <button className="ti-btn ti-btn-lg ti-btn-success-full">
             <Link href="/events/create-event">Create New Event</Link>
           </button>
         </div>
@@ -118,11 +118,15 @@ const Events = () => {
                     </td>
                     <td className="px-4 py-2">{event.maxAttendees}</td>
                     <td className="p-2 flex flex-row gap-6">
-                      <button className="">
-                        <FaEye size={20} />
+                      <button className="ti-btn ti-btn-md ti-btn-primary">
+                        <Link href={`/events/${event.id}`}>
+                          <FaEye size={20} />
+                        </Link>
                       </button>
-                      <button className="text-primary">
-                        <FaPencilAlt size={20} />
+                      <button className="ti-btn ti-btn-md ti-btn-warning">
+                        <Link href={`/events/edit/${event.id}`}>
+                          <FaPencilAlt size={20} />
+                        </Link>
                       </button>
                     </td>
                   </tr>

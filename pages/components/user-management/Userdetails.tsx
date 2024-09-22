@@ -48,7 +48,6 @@ const Userdetails: React.FC<UserDetailsProps> = ({ user }) => {
       />
       <div className="box custom-card">
         <div className="box-body">
-          {/* Header */}
           <div className="bg-light p-6 rounded-md mb-6">
             {/* Top Row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -84,45 +83,39 @@ const Userdetails: React.FC<UserDetailsProps> = ({ user }) => {
             {/* Associated Entities */}
             <div className=" md:col-span-2">
               <h2 className="text-xl font-semibold">Associated Entities</h2>
-
-              <div className="overflow-x-auto">
-                <table className="table min-w-full whitespace-nowrap table-hover border table-bordered">
-                  <thead>
-                    <tr className="border border-inherit border-solid dark:border-defaultborder/10">
-                      <th className="!text-start !text-[0.85rem]">Investors</th>
-                      <th className="!text-start !text-[0.85rem]">Advisors</th>
-                      <th className="!text-start !text-[0.85rem]">Partners</th>
-                      <th className="!text-start !text-[0.85rem]">Founders</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border border-inherit border-solid dark:border-defaultborder/10">
-                      <td className="!ps-4 !pe-5">
-                        {user.associatedEntities.investors?.join(", ") ||
-                          "None"}
-                      </td>
-                      <td className="!ps-4 !pe-5">
-                        {user.associatedEntities.advisors?.join(", ") || "None"}
-                      </td>
-                      <td className="!ps-4 !pe-5">
-                        {user.associatedEntities.partners?.join(", ") || "None"}
-                      </td>
-                      <td className="!ps-4 !pe-5">
-                        {user.associatedEntities.founders?.join(", ") || "None"}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <table className="table min-w-full whitespace-nowrap table-hover border table-bordered">
+                <thead>
+                  <tr className="border border-inherit border-solid dark:border-defaultborder/10">
+                    <th className="!text-start !text-[0.85rem]">Investors</th>
+                    <th className="!text-start !text-[0.85rem]">Advisors</th>
+                    <th className="!text-start !text-[0.85rem]">Partners</th>
+                    <th className="!text-start !text-[0.85rem]">Founders</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border border-inherit border-solid dark:border-defaultborder/10">
+                    <td className="!ps-4 !pe-5">
+                      {user.associatedEntities.investors?.join(", ") || "None"}
+                    </td>
+                    <td className="!ps-4 !pe-5">
+                      {user.associatedEntities.advisors?.join(", ") || "None"}
+                    </td>
+                    <td className="!ps-4 !pe-5">
+                      {user.associatedEntities.partners?.join(", ") || "None"}
+                    </td>
+                    <td className="!ps-4 !pe-5">
+                      {user.associatedEntities.founders?.join(", ") || "None"}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
 
         {/* Activity Log Table */}
         <div className="box p-6 rounded-md mt-6">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4 hs-dark-mode-active:text-white">
-            Activity Log
-          </h2>
+          <h2 className="text-xl font-semibold">Activity Log</h2>
           <table className="table min-w-full whitespace-nowrap table-hover border table-bordered">
             <thead>
               <tr className="border border-inherit border-solid dark:border-defaultborder/10">

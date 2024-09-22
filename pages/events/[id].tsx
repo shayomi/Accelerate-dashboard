@@ -1,13 +1,20 @@
-import React from "react";
-import EventDetails from "../components/events/eventDetails";
+import { useRouter } from "next/router";
+import EventDetail from "../components/event/event-details/eventdetail";
 
-const eventDetails = () => {
+const EventPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  if (!id) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      <EventDetails />
+      <EventDetail eventId={Number(id)} />
     </div>
   );
 };
 
-eventDetails.layout = "Contentlayout";
-export default eventDetails;
+EventPage.layout = "Contentlayout";
+export default EventPage;

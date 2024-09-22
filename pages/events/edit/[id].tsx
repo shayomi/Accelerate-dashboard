@@ -1,7 +1,22 @@
 import React from "react";
 
-const details = () => {
-  return <div>[id]</div>;
+import { eventsData } from "@/shared/data/event/eventdata";
+import { useRouter } from "next/router";
+import EventForm from "@/pages/components/event/eventform";
+
+const EditEvent = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const event = eventsData.find((e) => e.id === Number(id));
+
+  if (!event) return <div>Event not found</div>;
+
+  return (
+    <div>
+      <EventForm event={event} />
+    </div>
+  );
 };
 
-export default details;
+EditEvent.layout = "Contentlayout";
+export default EditEvent;

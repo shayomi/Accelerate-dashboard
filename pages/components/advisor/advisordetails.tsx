@@ -32,7 +32,7 @@ const AdvisorDetails = ({ advisor }: AdvisorDetailsProps) => {
       <div className="box custom-card">
         <div className="box-body">
           <div className="flex flex-col gap-6 sm:flex-row items-start">
-            <div className="flex flex-col items-center space-y-3 border-secondary/30 pb-12 border-r-0 sm:border-r pr-4  w-full sm:w-[40%]">
+            <div className="flex flex-col items-center space-y-3 border-secondary/30 pb-12 border-r-0 sm:border-r pr-4  w-full sm:w-[25%]">
               <div className="flex-shrink-0  main-profile-cover w-full p-6 flex items-center rounded-md justify-center">
                 <span className="avatar avatar-xxl avatar-rounded online me-4 items-center mt-8">
                   <img
@@ -53,7 +53,7 @@ const AdvisorDetails = ({ advisor }: AdvisorDetailsProps) => {
                 <h2 className="text-warning">Location</h2>
                 <p className="text-sm">{advisor.location}</p>
               </div>
-              <button className="ti-btn ti-btn-lg ti-btn-secondary !me-[0.375rem]">
+              <button className="ti-btn ti-btn-lg ti-btn-secondary-full !me-[0.375rem]">
                 Send email
               </button>
               <div className="flex flex-row gap-2 items-center">
@@ -79,7 +79,7 @@ const AdvisorDetails = ({ advisor }: AdvisorDetailsProps) => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col gap-4  w-full sm:w-[55%] py-12 items-start">
+            <div className="flex flex-col gap-4  w-full sm:w-[65%] pb-12 items-start">
               <div className="box-header border-b border-secondary/30">
                 <h4 className="text-md">About Advisor</h4>
                 <p className="text-sm mt-3">{advisor.bio}</p>

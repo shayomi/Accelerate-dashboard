@@ -21,7 +21,7 @@ const Testimonials = () => {
           <div>
             <button
               type="button"
-              className="bg-green text-white px-3 py-1.5 rounded-md"
+              className="ti-btn ti-btn-lg ti-btn-success-full"
             >
               <Link href="/testimonials/create"> Add New Testimonial</Link>
             </button>

@@ -125,19 +125,20 @@ export interface Speaker {
 
 export interface Event {
   id: number;
-  name?: string;
-  slug?: string;
-  dateTime?: string;
-  location?: string;
-  eventType?: string;
-  description?: string;
+  name: string;
+  slug: string;
+  dateTime: string;
+  location: string;
+  eventType: string;
+  description: string;
   bannerImage: string;
-  maxAttendees?: string;
-  registrationDeadline?: string;
-  agenda?: Array<{ time: string; activity: string }>;
-  speakers: Speaker[];
-  sponsors?: string[];
-  relatedCohort?: string;
-  registrationFields?: string[];
-  status: "draft" | "published";
+  maxAttendees: number;
+  registrationDeadline: string;
+  agenda: { time: string; activity: string }[];
+  speakers: { name: string; email: string; company: string }[]; // Updated speaker details
+  sponsors: string[];
+  relatedCohort: string;
+  registrationFields: string[];
+  status: string;
+  registeredPeople: { name: string; email: string; company: string }[];
 }

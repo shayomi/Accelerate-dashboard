@@ -1,262 +1,250 @@
-"use client";
-
-import React, { Fragment, useState, useEffect } from "react";
-import { Event, Speaker } from "@/shared/types";
+import React, { useState, useEffect, Fragment } from "react";
+import { useRouter } from "next/router";
+import { FaSave } from "react-icons/fa";
+import { Event } from "@/shared/types";
 import Seo from "@/shared/layout-components/seo/seo";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
-import { speakersData } from "../../../shared/data/speakerdata";
 
 interface EventFormProps {
-  eventData?: Event;
-  onSubmit: (event: Event) => void;
+  event?: Event;
 }
 
-const EventForm = ({ eventData, onSubmit }: EventFormProps) => {
-  const [eventName, setEventName] = useState(eventData?.name || "");
-  const [slug, setSlug] = useState(eventData?.slug || "");
-  const [dateTime, setDateTime] = useState(eventData?.dateTime || "");
-  const [location, setLocation] = useState(eventData?.location || "");
-  const [eventType, setEventType] = useState(eventData?.eventType || "");
-  const [description, setDescription] = useState(eventData?.description || "");
-  const [bannerImage, setBannerImage] = useState(eventData?.bannerImage || "");
-  const [maxAttendees, setMaxAttendees] = useState(
-    eventData?.maxAttendees || ""
-  );
-  const [registrationDeadline, setRegistrationDeadline] = useState(
-    eventData?.registrationDeadline || ""
-  );
-  const [agenda, setAgenda] = useState(eventData?.agenda || []);
-  const [selectedSpeakers, setSelectedSpeakers] = useState<Speaker[]>(
-    eventData?.speakers || []
-  );
+const EventForm = ({ event }: EventFormProps) => {
+  const [formData, setFormData] = useState({
+    name: event?.name || "",
+    slug: event?.slug || "",
+    dateTime: event?.dateTime || "",
+    location: event?.location || "",
+    eventType: event?.eventType || "Conference",
+    description: event?.description || "",
+    bannerImage: event?.bannerImage || "",
+    maxAttendees: event?.maxAttendees || 100,
+    registrationDeadline: event?.registrationDeadline || "",
+    agenda: event?.agenda || [{ time: "", activity: "" }],
+    speakers: event?.speakers || [],
+    sponsors: event?.sponsors || [""],
+    relatedCohort: event?.relatedCohort || "",
+    registrationFields: event?.registrationFields || ["Name", "Email"],
+    status: event?.status || "upcoming",
+  });
 
-  const [speakerOptions] = useState<Speaker[]>(speakersData);
+  const router = useRouter();
 
-  const handleSpeakerChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedIds = Array.from(event.target.selectedOptions, (option) =>
-      parseInt(option.value)
-    );
-    const newSelectedSpeakers = speakerOptions.filter((speaker) =>
-      selectedIds.includes(speaker.id)
-    );
-    setSelectedSpeakers(newSelectedSpeakers);
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+    field: string
+  ) => {
+    setFormData({ ...formData, [field]: e.target.value });
   };
 
-  const removeSpeaker = (speaker: Speaker) => {
-    setSelectedSpeakers(selectedSpeakers.filter((s) => s.id !== speaker.id));
+  const handleAgendaChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: "time" | "activity"
+  ) => {
+    const newAgenda = [...formData.agenda];
+    newAgenda[index][field] = e.target.value;
+    setFormData({ ...formData, agenda: newAgenda });
+  };
+
+  const handleAddAgendaItem = () => {
+    setFormData({
+      ...formData,
+      agenda: [...formData.agenda, { time: "", activity: "" }],
+    });
+  };
+
+  const handleRemoveAgendaItem = (index: number) => {
+    const newAgenda = formData.agenda.filter((_, i) => i !== index);
+    setFormData({ ...formData, agenda: newAgenda });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    const newEvent: Event = {
-      id: eventData?.id ?? Date.now(),
-      name: eventName,
-      slug,
-      dateTime,
-      location,
-      eventType,
-      description,
-      bannerImage,
-      maxAttendees,
-      registrationDeadline,
-      agenda,
-      status: "draft",
-      speakers: selectedSpeakers,
-      registrationFields: [],
-      sponsors: [],
-      relatedCohort: "",
-    };
-
-    onSubmit(newEvent);
-  };
-
-  const generateSlug = (name: string) => {
-    return name
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
-  };
-
-  useEffect(() => {
-    if (eventName) {
-      setSlug(generateSlug(eventName));
+    // Add logic to submit data
+    console.log(formData);
+    if (event) {
+      // If editing, submit to edit event API
+    } else {
+      // If creating, submit to create event API
     }
-  }, [eventName]);
+    router.push("/events");
+  };
 
   return (
     <Fragment>
-      <Seo title={eventData ? "Edit Event" : "Create Event"} />
+      <Seo title="Events Management" />
       <Pageheader
-        currentpage={eventData ? "Edit Event" : "Create Event"}
-        activepage="Events Management"
-        mainpage="Events"
+        currentpage="Events"
+        activepage="Dashboards"
+        mainpage="Event Management"
       />
       <div className="xl:col-span-6 col-span-12">
-        <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-12 sm:gap-x-6 sm:gap-y-4">
-            <div className="md:col-span-6 col-span-12 mb-4">
-              <label className="form-label">Event Name</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Event Name"
-                aria-label="Event Name"
-                value={eventName}
-                onChange={(e) => setEventName(e.target.value)}
-                required
-              />
-            </div>
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-12 sm:gap-x-6 sm:gap-y-4"
+        >
+          {/* Event Name */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Event Name</label>
+            <input
+              type="text"
+              value={formData.name}
+              onChange={(e) => handleChange(e, "name")}
+              placeholder="Enter event name"
+              className="form-control"
+              required
+            />
+          </div>
 
-            <div className="md:col-span-6 col-span-12 mb-4">
-              <label className="form-label">Slug</label>
-              <div className="flex items-center">
+          {/* Slug */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Slug</label>
+            <input
+              type="text"
+              value={formData.slug}
+              onChange={(e) => handleChange(e, "slug")}
+              placeholder="Enter event slug"
+              className="form-control"
+              required
+            />
+          </div>
+
+          {/* Date and Time */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Date and Time</label>
+            <input
+              type="datetime-local"
+              value={formData.dateTime}
+              onChange={(e) => handleChange(e, "dateTime")}
+              className="form-control"
+              required
+            />
+          </div>
+
+          {/* Location */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Location</label>
+            <input
+              type="text"
+              value={formData.location}
+              onChange={(e) => handleChange(e, "location")}
+              placeholder="Enter event location"
+              className="form-control"
+              required
+            />
+          </div>
+
+          {/* Event Type */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Event Type</label>
+            <select
+              value={formData.eventType}
+              onChange={(e) => handleChange(e, "eventType")}
+              className="form-control"
+              required
+            >
+              <option value="Conference">Conference</option>
+              <option value="Summit">Summit</option>
+              <option value="Meetup">Meetup</option>
+            </select>
+          </div>
+
+          {/* Description */}
+          <div className="md:col-span-12 col-span-12 mb-4">
+            <label className="form-label">Description</label>
+            <textarea
+              value={formData.description}
+              onChange={(e) => handleChange(e, "description")}
+              placeholder="Enter event description"
+              className="form-control"
+              required
+            ></textarea>
+          </div>
+
+          {/* Banner Image */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Banner Image URL</label>
+            <input
+              type="text"
+              value={formData.bannerImage}
+              onChange={(e) => handleChange(e, "bannerImage")}
+              placeholder="Enter banner image URL"
+              className="form-control"
+              required
+            />
+          </div>
+
+          {/* Max Attendees */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Max Attendees</label>
+            <input
+              type="number"
+              value={formData.maxAttendees}
+              onChange={(e) => handleChange(e, "maxAttendees")}
+              className="form-control"
+              required
+            />
+          </div>
+
+          {/* Registration Deadline */}
+          <div className="md:col-span-6 col-span-12 mb-4">
+            <label className="form-label">Registration Deadline</label>
+            <input
+              type="datetime-local"
+              value={formData.registrationDeadline}
+              onChange={(e) => handleChange(e, "registrationDeadline")}
+              className="form-control"
+              required
+            />
+          </div>
+
+          {/* Agenda */}
+          <div className="md:col-span-12 col-span-12 mb-4">
+            <label className="form-label">Agenda</label>
+            {formData.agenda.map((item, index) => (
+              <div key={index} className="flex gap-2 mb-2">
+                <input
+                  type="time"
+                  value={item.time}
+                  onChange={(e) => handleAgendaChange(index, e, "time")}
+                  className="form-control"
+                />
                 <input
                   type="text"
-                  className="form-control flex-grow"
-                  value={slug}
-                  onChange={(e) => setSlug(e.target.value)}
-                  required
+                  value={item.activity}
+                  onChange={(e) => handleAgendaChange(index, e, "activity")}
+                  className="form-control"
+                  placeholder="Enter activity"
                 />
                 <button
                   type="button"
-                  onClick={() => setSlug(generateSlug(eventName))}
-                  className="ml-2 bg-gray-200 p-2 rounded"
+                  className="ti-btn ti-btn-danger"
+                  onClick={() => handleRemoveAgendaItem(index)}
                 >
-                  Refresh
+                  Remove
                 </button>
               </div>
-            </div>
+            ))}
+            <button
+              type="button"
+              className="ti-btn ti-btn-light"
+              onClick={handleAddAgendaItem}
+            >
+              Add Agenda Item
+            </button>
+          </div>
 
-            <div className="md:col-span-6 col-span-12 mb-4">
-              <label className="form-label">Date and Time</label>
-              <input
-                type="datetime-local"
-                className="form-control"
-                value={dateTime}
-                onChange={(e) => setDateTime(e.target.value)}
-              />
-            </div>
-
-            <div className="md:col-span-6 col-span-12 mb-4">
-              <label className="form-label">Location</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-            </div>
-
-            <div className="md:col-span-6 col-span-12 mb-4">
-              <label className="form-label">Event Type</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Event Type"
-                value={eventType}
-                onChange={(e) => setEventType(e.target.value)}
-              />
-            </div>
-
-            <div className="md:col-span-12 col-span-12 mb-4">
-              <label className="form-label">Description</label>
-              <textarea
-                className="form-control"
-                placeholder="Event Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
-
-            <div className="md:col-span-12 col-span-12 mb-4">
-              <label className="form-label">Banner Image URL</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Banner Image URL"
-                value={bannerImage}
-                onChange={(e) => setBannerImage(e.target.value)}
-              />
-            </div>
-
-            <div className="md:col-span-6 col-span-12 mb-4">
-              <label className="form-label">Max Attendees</label>
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Max Attendees"
-                value={maxAttendees}
-                onChange={(e) => setMaxAttendees(e.target.value)}
-              />
-            </div>
-
-            <div className="md:col-span-6 col-span-12 mb-4">
-              <label className="form-label">Registration Deadline</label>
-              <input
-                type="date"
-                className="form-control"
-                value={registrationDeadline}
-                onChange={(e) => setRegistrationDeadline(e.target.value)}
-              />
-            </div>
-
-            <div className="md:col-span-12 col-span-12 mb-4">
-              <label className="form-label">Agenda</label>
-              {/* Add agenda fields if required */}
-            </div>
-
-            <div className="md:col-span-12 col-span-12 mb-4">
-              <label className="form-label">Speakers</label>
-              <select
-                multiple
-                className="form-control"
-                onChange={handleSpeakerChange}
-                value={selectedSpeakers.map((speaker) => speaker.id.toString())}
-              >
-                <option value="" disabled>
-                  Select speakers
-                </option>
-                {speakerOptions.map((speaker) => (
-                  <option key={speaker.id} value={speaker.id}>
-                    {speaker.name}
-                  </option>
-                ))}
-              </select>
-              <ul className="mt-2">
-                {selectedSpeakers.map((speaker) => (
-                  <li
-                    key={speaker.id}
-                    className="flex justify-between items-center"
-                  >
-                    {speaker.name}
-                    <button
-                      type="button"
-                      onClick={() => removeSpeaker(speaker)}
-                      className="text-red-500 ml-2"
-                    >
-                      Remove
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="md:col-span-12 col-span-12 flex flex-row gap-4 mt-6 items-end">
-              <button
-                type="button"
-                className="ti-btn bg-none text-red rounded-sm !mb-0"
-              >
-                Save as Draft
-              </button>
-              <button
-                type="submit"
-                className="ti-btn bg-green rounded-sm !mb-0"
-              >
-                {eventData ? "Update Event" : "Create Event"}
-              </button>
-            </div>
+          {/* Buttons */}
+          <div className="col-span-12 mt-6 flex flex-row gap-4 justify-end mb-12">
+            <button type="submit" className="ti-btn ti-btn-success ti-btn-lg">
+              Save
+            </button>
+            <button type="submit" className="ti-btn ti-btn-primary ti-btn-lg">
+              Publish
+            </button>
           </div>
         </form>
       </div>
@@ -264,5 +252,4 @@ const EventForm = ({ eventData, onSubmit }: EventFormProps) => {
   );
 };
 
-EventForm.layout = "Contentlayout";
 export default EventForm;
