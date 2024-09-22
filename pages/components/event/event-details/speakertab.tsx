@@ -10,6 +10,10 @@ interface SpeakersDetailsProps {
   event: Event;
 }
 const SpeakersDetails = ({ event }: SpeakersDetailsProps) => {
+  if (!event) {
+    return <div>Event not found</div>;
+  }
+
   return (
     <Fragment>
       <div className="box custom-card">

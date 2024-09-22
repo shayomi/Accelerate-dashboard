@@ -6,6 +6,10 @@ interface AgendaDetailsProps {
 }
 
 const AgendaDetails = ({ event }: AgendaDetailsProps) => {
+  if (!event) {
+    return <div>Event not found</div>;
+  }
+
   return (
     <Fragment>
       <div className="box custom-card">

@@ -13,6 +13,10 @@ interface RegistrationDetailsProps {
 }
 
 const RegistrationDetails: React.FC<RegistrationDetailsProps> = ({ event }) => {
+  if (!event) {
+    return <div>Event not found</div>;
+  }
+
   return (
     <Fragment>
       <div className="box custom-card">
