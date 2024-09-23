@@ -93,7 +93,7 @@ const Firebaselogin = () => {
                       process.env.NODE_ENV === "production" ? basePath : ""
                     }/assets/images/brand-logos/aalogo.png`}
                     alt="logo"
-                    className=""
+                    className="desktop-white"
                   />
                   <img
                     src={`${
