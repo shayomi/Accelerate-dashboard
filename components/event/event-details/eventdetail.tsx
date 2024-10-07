@@ -26,9 +26,12 @@ const EventDetail = ({ eventId }: { eventId: number }) => {
         mainpage="Events"
       />
       <div className="flex justify-end mb-4">
-        <button className="bg-blue text-white py-2 px-4 rounded-md mr-3">
-          Edit Event
-        </button>
+        <Link href={`/events/edit/${event.id}`}>
+          <button className="bg-blue text-white py-2 px-4 rounded-md mr-3">
+            Edit Event
+          </button>
+        </Link>
+
         <button className="bg-green text-white py-2 px-4 rounded-md mr-3">
           Manage Registrations
         </button>

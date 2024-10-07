@@ -53,7 +53,6 @@ const CreateSpeaker = () => {
       </div>
 
       <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Name Field */}
         <div>
           <label className="form-label">Name</label>
           <input
@@ -63,7 +62,6 @@ const CreateSpeaker = () => {
           />
         </div>
 
-        {/* Company Name Field */}
         <div>
           <label className="form-label">Company Name</label>
           <input
@@ -73,13 +71,11 @@ const CreateSpeaker = () => {
           />
         </div>
 
-        {/* Image Upload Field */}
         <div>
           <label className="form-label">Profile Picture</label>
           <input type="file" className="form-control" />
         </div>
 
-        {/* LinkedIn Profile Field */}
         <div>
           <label className="form-label">LinkedIn Profile</label>
           <input
@@ -89,7 +85,6 @@ const CreateSpeaker = () => {
           />
         </div>
 
-        {/* Twitter Handle Field */}
         <div>
           <label className="form-label">Twitter Handle</label>
           <input
@@ -99,13 +94,11 @@ const CreateSpeaker = () => {
           />
         </div>
 
-        {/* Location Field */}
         <div>
           <label className="form-label">Location</label>
           <input type="text" className="form-control" placeholder="Location" />
         </div>
 
-        {/* Bio Field */}
         <div className="col-span-2">
           <label className="form-label">Bio</label>
           <ReactQuill
@@ -116,7 +109,6 @@ const CreateSpeaker = () => {
           />
         </div>
 
-        {/* Event Selection Field */}
         <div className="col-span-2">
           <label className="form-label">Select Events</label>
           <select
@@ -134,7 +126,6 @@ const CreateSpeaker = () => {
             ))}
           </select>
 
-          {/* Display selected events */}
           <div className="mt-2 mb-8">
             {selectedEventsList.map((event, index) => (
               <div
@@ -158,7 +149,6 @@ const CreateSpeaker = () => {
   );
 };
 
-// Layout configuration
 CreateSpeaker.layout = "Contentlayout";
 
 export default CreateSpeaker;

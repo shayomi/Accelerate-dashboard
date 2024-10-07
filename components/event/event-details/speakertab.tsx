@@ -1,11 +1,10 @@
 "use client";
 
 import React, { Fragment } from "react";
-import { Event } from "@/shared/types"; // Adjust the path to where your Event interface is defined
+import { Event } from "@/shared/types";
 import { FaEye, FaTrash } from "react-icons/fa";
 import Link from "next/link";
 
-// Props to pass the event data
 interface SpeakersDetailsProps {
   event: Event;
 }
