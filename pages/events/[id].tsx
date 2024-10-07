@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import EventDetail from "../components/event/event-details/eventdetail";
+import EventDetail from "../../components/event/event-details/eventdetail";
 
 const EventPage = () => {
   const router = useRouter();

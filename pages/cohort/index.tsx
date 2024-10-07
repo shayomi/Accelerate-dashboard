@@ -1,66 +1,72 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
 import Seo from "@/shared/layout-components/seo/seo";
-import Link from "next/link";
-import Cohorts from "../components/cohort/cohorts";
-import Partners from "../components/applications/partners";
-import ProgramPartner from "../components/cohort/programpartner";
+import Cohorts from "../../components/cohort/cohorts";
+import ProgramPartner from "../../components/cohort/programpartner";
 
-const index = () => {
+const Index = () => {
+  const [activeTab, setActiveTab] = useState("cohorts"); // Active tab state
+
   return (
     <Fragment>
-      <Seo title={"Cohort Management"} />
-      <Pageheader
-        currentpage="Cohort"
-        activepage="Dashboard"
-        mainpage="Cohort"
-      />
-
-      <div className="px-4 py-4 w-full mb-12">
+      <div className="">
         <div className="w-full">
-          <div className="!p-4 border-b dark:border-defaultborder/10 border-dashed md:flex items-center justify-between">
+          <div className="mt-4 border-b dark:border-defaultborder/10 border-dashed md:flex items-center justify-between">
             <nav className="-mb-0.5 sm:flex md:space-x-6 rtl:space-x-reverse pb-2">
-              <Link
-                className="w-full sm:w-auto flex active hs-tab-active:font-semibold  hs-tab-active:text-white hs-tab-active:bg-primary rounded-md py-2 px-4 text-primary text-sm"
-                href="#!"
-                id="activity-tab"
-                data-hs-tab="#activity-tab-pane"
+              <button
+                className={`w-full sm:w-auto flex rounded-md py-2 px-4 text-primary text-sm ${
+                  activeTab === "cohorts"
+                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
+                    : "text-white"
+                }`}
+                onClick={() => setActiveTab("cohorts")}
                 aria-controls="activity-tab-pane"
+                aria-selected={activeTab === "cohorts"}
               >
-                <i className="ri-gift-line  align-middle inline-block me-1"></i>
+                <i className="ri-gift-line align-middle inline-block me-1"></i>
                 Cohorts
-              </Link>
-              <Link
-                className="w-full sm:w-auto flex hs-tab-active:font-semibold  hs-tab-active:text-white hs-tab-active:bg-primary rounded-md  py-2 px-4 text-primary text-sm"
-                href="#!"
-                id="posts-tab"
-                data-hs-tab="#posts-tab-pane"
+              </button>
+              <button
+                className={`w-full sm:w-auto flex rounded-md py-2 px-4 text-primary text-sm ${
+                  activeTab === "partner"
+                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
+                    : "text-white"
+                }`}
+                onClick={() => setActiveTab("partner")}
                 aria-controls="posts-tab-pane"
+                aria-selected={activeTab === "partner"}
               >
                 <i className="ri-bill-line me-1 align-middle inline-block"></i>
                 Partner
-              </Link>
+              </button>
             </nav>
           </div>
 
           <div className="!p-4">
             <div className="tab-content" id="myTabContent">
-              <div
-                className="tab-pane show active fade !p-0 !border-0"
-                id="activity-tab-pane"
-                role="tabpanel"
-                aria-labelledby="activity-tab"
-              >
-                <Cohorts />
-              </div>
-              <div
-                className="tab-pane fade !p-0 !border-0 hidden !rounded-md"
-                id="posts-tab-pane"
-                role="tabpanel"
-                aria-labelledby="posts-tab"
-              >
-                <ProgramPartner />
-              </div>
+              {/* Cohorts tab content */}
+              {activeTab === "cohorts" && (
+                <div
+                  className="tab-pane show active fade !p-0 !border-0"
+                  id="activity-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="activity-tab"
+                >
+                  <Cohorts />
+                </div>
+              )}
+
+              {/* Program Partner tab content */}
+              {activeTab === "partner" && (
+                <div
+                  className="tab-pane fade !p-0 !border-0 show active"
+                  id="posts-tab-pane"
+                  role="tabpanel"
+                  aria-labelledby="posts-tab"
+                >
+                  <ProgramPartner />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -69,5 +75,5 @@ const index = () => {
   );
 };
 
-index.layout = "Contentlayout";
-export default index;
+Index.layout = "Contentlayout";
+export default Index;

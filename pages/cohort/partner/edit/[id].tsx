@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Partner } from "@/shared/types";
 import { partners } from "@/shared/data/partnerdata";
-import PartnerForm from "@/pages/components/cohort/partnerform";
+import PartnerForm from "@/components/cohort/partnerform";
 
 const Edit = () => {
   const router = useRouter();

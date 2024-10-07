@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Partner } from "@/shared/types";
 import { partners } from "@/shared/data/partnerdata";
-import PartnerDetails from "@/pages/components/cohort/partnerdetails";
+import PartnerDetails from "@/components/cohort/partnerdetails";
 
 const PartnerDetailPage = () => {
   const router = useRouter();

@@ -1,12 +1,12 @@
 import React from "react";
-import Authors from "../components/author/authors";
+import Authors from "../../components/author/authors";
 
 const index = () => {
-	return (
-		<div>
-			<Authors />
-		</div>
-	);
+  return (
+    <div>
+      <Authors />
+    </div>
+  );
 };
 
 index.layout = "Contentlayout";

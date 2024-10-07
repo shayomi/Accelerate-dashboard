@@ -1,12 +1,12 @@
 import React from "react";
-import Meeting from "../components/meetings/meeting";
+import Meeting from "../../components/meetings/meeting";
 
 const index = () => {
-	return (
-		<div>
-			<Meeting />
-		</div>
-	);
+  return (
+    <div>
+      <Meeting />
+    </div>
+  );
 };
 
 index.layout = "Contentlayout";

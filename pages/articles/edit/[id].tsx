@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Article } from "@/shared/types";
 
-import CreateArticle from "@/pages/components/article/createarticle";
+import CreateArticle from "@/components/article/createarticle";
 import { articlesData } from "@/shared/data/articledata";
 
 const EditArticlePage = () => {

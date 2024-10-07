@@ -1,5 +1,5 @@
-import ManageIndustry from "@/pages/components/startup/createIndustry";
-import { StartupsList } from "@/shared/data/dashboards/startupsdata";
+import ManageIndustry from "@/components/startup/createIndustry";
+import { StartupsList } from "@/shared/data/startupsdata";
 import React from "react";
 
 const CreateIndustryPage = () => {

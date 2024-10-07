@@ -1,7 +1,7 @@
 // pages/authors/create.tsx
 import React from "react";
 import { authorsList } from "../../shared/data/authordata";
-import AuthorForm from "../components/author/createauthor";
+import AuthorForm from "../../components/author/createauthor";
 
 const CreateAuthorPage = () => {
   const handleCreateAuthor = (newAuthor: any) => {

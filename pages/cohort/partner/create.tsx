@@ -1,12 +1,12 @@
-import PartnerForm from "@/pages/components/cohort/partnerform";
+import PartnerForm from "@/components/cohort/partnerform";
 import React from "react";
 
 const Create = () => {
-	return (
-		<div>
-			<PartnerForm />
-		</div>
-	);
+  return (
+    <div>
+      <PartnerForm />
+    </div>
+  );
 };
 
 Create.layout = "Contentlayout";

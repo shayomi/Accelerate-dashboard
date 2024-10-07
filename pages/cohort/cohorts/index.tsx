@@ -1,12 +1,12 @@
 import React from "react";
-import Cohorts from "../../components/cohort/cohorts";
+import Cohorts from "../../../components/cohort/cohorts";
 
 const index = () => {
-	return (
-		<div>
-			<Cohorts />
-		</div>
-	);
+  return (
+    <div>
+      <Cohorts />
+    </div>
+  );
 };
 
 index.layout = "Contentlayout";

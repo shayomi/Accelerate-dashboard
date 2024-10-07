@@ -1,12 +1,12 @@
 import React from "react";
-import Startups from "../../components/startup/startups";
+import Startups from "../../../components/startup/startups";
 
 const index = () => {
-	return (
-		<div>
-			<Startups />
-		</div>
-	);
+  return (
+    <div>
+      <Startups />
+    </div>
+  );
 };
 
 index.layout = "Contentlayout";

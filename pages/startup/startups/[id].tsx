@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { StartupsList } from "@/shared/data/dashboards/startupsdata";
+import { StartupsList } from "@/shared/data/startupsdata";
 import { Startupdata } from "@/shared/types";
-import StartupDetails from "@/pages/components/startup/details/startupdetails";
+import StartupDetails from "@/components/startup/details/startupdetails";
 import React from "react";
 
 const StartupPage = () => {

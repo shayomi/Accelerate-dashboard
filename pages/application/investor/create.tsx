@@ -1,4 +1,4 @@
-import CreateInvestor from "@/pages/components/applications/InvestorForm";
+import CreateInvestor from "@/components/applications/InvestorForm";
 import React from "react";
 
 const create = () => {

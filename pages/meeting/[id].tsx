@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { meetings } from "../../shared/data/meetingsdata";
-import MeetingDetail from "../components/meetings/details";
+import MeetingDetail from "../../components/meetings/details";
 
 const MeetingDetailPage = () => {
   const router = useRouter();

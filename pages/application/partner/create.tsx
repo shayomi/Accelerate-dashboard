@@ -1,4 +1,4 @@
-import CreatePartner from "@/pages/components/applications/PartnerForm";
+import CreatePartner from "@/components/applications/PartnerForm";
 import React from "react";
 
 const create = () => {

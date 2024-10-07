@@ -1,12 +1,12 @@
-import Industry from "@/pages/components/startup/industry";
+import Industry from "@/components/startup/industry";
 import React from "react";
 
 const index = () => {
-	return (
-		<div>
-			<Industry />
-		</div>
-	);
+  return (
+    <div>
+      <Industry />
+    </div>
+  );
 };
 
 index.layout = "Contentlayout";

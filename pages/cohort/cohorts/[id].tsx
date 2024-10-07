@@ -1,8 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Cohort } from "@/shared/types";
-import cohorts from "@/pages/components/cohort/cohorts";
-import CohortDetail from "@/pages/components/cohort/cohortdetails";
+import cohorts from "@/components/cohort/cohorts";
+import CohortDetail from "@/components/cohort/cohortdetails";
 import { cohortsList } from "@/shared/data/cohortsdata";
 
 const CohortDetailPage = () => {

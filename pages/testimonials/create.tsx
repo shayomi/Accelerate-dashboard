@@ -1,6 +1,6 @@
 import React from "react";
 import { TestimonialList } from "../../shared/data/testimonaildata";
-import TestimonialForm from "../components/testimonial/TestimonialForm";
+import TestimonialForm from "../../components/testimonial/TestimonialForm";
 
 const CreateTestimonialPage = () => {
   const handleCreateTestimonial = (newTestimonial: {

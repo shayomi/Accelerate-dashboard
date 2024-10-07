@@ -1,5 +1,5 @@
 import React from "react";
-import Analytics from "../components/dashboards/analytics";
+import Analytics from "../../components/dashboards/analytics";
 
 const index = () => {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 
 import { eventsData } from "@/shared/data/event/eventdata";
 import { useRouter } from "next/router";
-import EventForm from "@/pages/components/event/eventform";
+import EventForm from "@/components/event/eventform";
 
 const EditEvent = () => {
   const router = useRouter();

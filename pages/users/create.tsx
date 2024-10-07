@@ -1,12 +1,12 @@
 import React from "react";
-import CreateUser from "../components/user-management/CreateUser";
+import CreateUser from "../../components/user-management/CreateUser";
 
 const create = () => {
-	return (
-		<div>
-			<CreateUser />
-		</div>
-	);
+  return (
+    <div>
+      <CreateUser />
+    </div>
+  );
 };
 
 create.layout = "Contentlayout";

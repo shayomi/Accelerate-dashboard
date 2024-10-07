@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { TestimonialList } from "@/shared/data/testimonaildata";
-import TestimonialForm from "@/pages/components/testimonial/TestimonialForm";
+import TestimonialForm from "@/components/testimonial/TestimonialForm";
 
 const EditTestimonialPage = () => {
   const router = useRouter();
