@@ -17,8 +17,8 @@ const Index = () => {
               <Link
                 className={`w-full sm:w-auto flex ${
                   activeTab === "investors"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                    ? "text-white bg-primary"
+                    : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("investors")}
@@ -30,9 +30,7 @@ const Index = () => {
               </Link>
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "partners"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "partners" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("partners")}

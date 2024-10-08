@@ -15,9 +15,7 @@ const Index = () => {
             <nav className="-mb-0.5 sm:flex md:space-x-6 rtl:space-x-reverse pb-2">
               <button
                 className={`w-full sm:w-auto flex rounded-md py-2 px-4 text-primary text-sm ${
-                  activeTab === "cohorts"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-white"
+                  activeTab === "cohorts" ? "text-white bg-primary" : "text-sm"
                 }`}
                 onClick={() => setActiveTab("cohorts")}
                 aria-controls="activity-tab-pane"
@@ -28,9 +26,7 @@ const Index = () => {
               </button>
               <button
                 className={`w-full sm:w-auto flex rounded-md py-2 px-4 text-primary text-sm ${
-                  activeTab === "partner"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-white"
+                  activeTab === "partner" ? "text-white bg-primary" : "text-sm"
                 }`}
                 onClick={() => setActiveTab("partner")}
                 aria-controls="posts-tab-pane"

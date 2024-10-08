@@ -21,9 +21,7 @@ const Index = () => {
             <nav className="-mb-0.5 sm:flex md:space-x-6 rtl:space-x-reverse pb-2">
               <button
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "startups"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-white"
+                  activeTab === "startups" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-primary text-sm`}
                 onClick={() => handleTabClick("startups")}
               >
@@ -32,9 +30,7 @@ const Index = () => {
               </button>
               <button
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "industry"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-white"
+                  activeTab === "industry" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-primary text-sm`}
                 onClick={() => handleTabClick("industry")}
               >

@@ -16,9 +16,7 @@ const Index = () => {
             <nav className="-mb-0.5 sm:flex md:space-x-6 rtl:space-x-reverse pb-2">
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "users"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "users" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("users")}
@@ -30,12 +28,10 @@ const Index = () => {
               </Link>
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "roles"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "roles" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
-                onClick={() => setActiveTab("roles")} // Updated to "roles"
+                onClick={() => setActiveTab("roles")}
                 id="posts-tab"
                 aria-controls="posts-tab-pane"
               >

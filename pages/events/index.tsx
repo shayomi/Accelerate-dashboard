@@ -18,9 +18,7 @@ const Index = () => {
             <nav className="-mb-0.5 sm:flex md:space-x-6 rtl:space-x-reverse pb-2">
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "events"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "events" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("events")}
@@ -32,9 +30,7 @@ const Index = () => {
               </Link>
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "speakers"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "speakers" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("speakers")}

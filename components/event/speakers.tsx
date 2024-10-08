@@ -44,7 +44,7 @@ const Speaker = () => {
       <div className="box custom-card">
         {/* Header */}
         <div className="box-header justify-between gap-8 mb-2 items-center">
-          <h1 className="text-2xl font-bold text-blue-700">Speakers</h1>
+          <h1 className="box-title">Speakers</h1>
           <div className="flex flex-col md:flex-row px-4  gap-4">
             <input
               type="text"

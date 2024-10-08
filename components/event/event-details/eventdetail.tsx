@@ -52,9 +52,7 @@ const EventDetail = ({ eventId }: { eventId: number }) => {
             <nav className="-mb-0.5 sm:flex md:space-x-6 rtl:space-x-reverse pb-2">
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "activity"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "activity" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("activity")}
@@ -65,8 +63,8 @@ const EventDetail = ({ eventId }: { eventId: number }) => {
               <Link
                 className={`w-full sm:w-auto flex ${
                   activeTab === "registrations"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                    ? "text-white bg-primary"
+                    : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("registrations")}
@@ -76,9 +74,7 @@ const EventDetail = ({ eventId }: { eventId: number }) => {
               </Link>
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "speakers"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "speakers" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("speakers")}
@@ -88,9 +84,7 @@ const EventDetail = ({ eventId }: { eventId: number }) => {
               </Link>
               <Link
                 className={`w-full sm:w-auto flex ${
-                  activeTab === "agenda"
-                    ? "hs-tab-active:font-semibold hs-tab-active:text-white hs-tab-active:bg-primary"
-                    : "text-primary"
+                  activeTab === "agenda" ? "text-white bg-primary" : "text-sm"
                 } rounded-md py-2 px-4 text-sm`}
                 href="#!"
                 onClick={() => setActiveTab("agenda")}
