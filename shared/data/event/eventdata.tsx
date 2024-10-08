@@ -29,8 +29,24 @@ export const eventsData = [
     registrationFields: ["Name", "Email", "Company"],
     status: "upcoming",
     registeredPeople: [
-      { name: "John Doe", email: "john@example.com", company: "TechCorp" },
-      { name: "Jane Smith", email: "jane@example.com", company: "InnovateX" },
+      {
+        name: "John Doe",
+        email: "john@example.com",
+        company: "TechCorp",
+        status: "Waitlisted",
+      },
+      {
+        name: "Jane Smith",
+        email: "jane@example.com",
+        company: "InnovateX",
+        status: "Confirmed",
+      },
+      {
+        name: "Jude Smalls",
+        email: "jude@example.com",
+        company: "InnovateY",
+        status: "Cancelled",
+      },
     ],
   },
   {
@@ -67,8 +83,20 @@ export const eventsData = [
         name: "Emily Stone",
         email: "emily@example.com",
         company: "StartupHub",
+        status: "Waitlisted",
       },
-      { name: "Mark Johnson", email: "mark@example.com", company: "VCFirm" },
+      {
+        name: "Mark Johnson",
+        email: "mark@example.com",
+        company: "VCFirm",
+        status: "Cancelled",
+      },
+      {
+        name: "Cane Deniyi",
+        email: "cane@example.com",
+        company: "V-funds",
+        status: "Confirmed",
+      },
     ],
   },
   {
@@ -105,11 +133,13 @@ export const eventsData = [
         name: "Chris Evans",
         email: "chris@example.com",
         company: "DevCommunity",
+        status: "Confirmed",
       },
       {
         name: "Natalie Brown",
         email: "natalie@example.com",
         company: "CodeLabs",
+        status: "Waitlisted",
       },
     ],
   },

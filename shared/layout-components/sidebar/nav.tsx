@@ -9,6 +9,7 @@ const MeetingsIcon = <i className="bx bx-calendar side-menu__icon"></i>;
 const CohortIcon = <i className="bx bx-group side-menu__icon"></i>;
 const ArticlesIcon = <i className="bx bx-news side-menu__icon"></i>;
 const AuthorsIcon = <i className="bx bx-pencil side-menu__icon"></i>;
+const CategoryIcon = <i className="bx bx-circle side-menu__icon"></i>;
 const TestimonialsIcon = (
   <i className="bx bx-message-square-dots side-menu__icon"></i>
 );
@@ -139,6 +140,14 @@ export const MenuItems: any = [
     icon: ArticlesIcon,
     title: "Articles",
     path: "/articles",
+    type: "link",
+    active: false,
+    selected: false,
+  },
+  {
+    icon: CategoryIcon,
+    title: "Categories",
+    path: "/category",
     type: "link",
     active: false,
     selected: false,

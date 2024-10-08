@@ -7,6 +7,7 @@ import RegistrationDetails from "./registrationstab";
 import SpeakersDetails from "./speakertab";
 import AgendaDetails from "./agendatab";
 import { eventsData } from "@/shared/data/event/eventdata";
+import router from "next/router";
 
 const EventDetail = ({ eventId }: { eventId: number }) => {
   const event = eventsData.find((e) => e.id === eventId);
@@ -27,22 +28,27 @@ const EventDetail = ({ eventId }: { eventId: number }) => {
       />
       <div className="flex justify-end mb-4">
         <Link href={`/events/edit/${event.id}`}>
-          <button className="bg-blue text-white py-2 px-4 rounded-md mr-3">
+          <button className="ti-btn ti-btn-md ti-btn-warning mr-3">
             Edit Event
           </button>
         </Link>
 
-        <button className="bg-green text-white py-2 px-4 rounded-md mr-3">
-          Manage Registrations
+        <button
+          onClick={() => router.push(`/events/add-registrant/${event.id}`)}
+          className="ti-btn ti-btn-md ti-btn-success mr-3"
+        >
+          Add Registrant
         </button>
-        <button className="bg-purple text-white py-2 px-4 rounded-md">
-          Add Speakers
-        </button>
+        <Link href={`/events/edit/${event.id}`}>
+          <button className="ti-btn ti-btn-md ti-btn-primary">
+            Add Speakers
+          </button>
+        </Link>
       </div>
 
-      <div className="px-4 py-4 w-full mb-12">
+      <div className="mt-6 w-full mb-12">
         <div className="w-full">
-          <div className="!p-4 border-b dark:border-defaultborder/10 border-dashed md:flex items-center justify-between">
+          <div className="border-b dark:border-defaultborder/10 border-dashed md:flex items-center justify-between">
             <nav className="-mb-0.5 sm:flex md:space-x-6 rtl:space-x-reverse pb-2">
               <Link
                 className={`w-full sm:w-auto flex ${
@@ -95,7 +101,7 @@ const EventDetail = ({ eventId }: { eventId: number }) => {
             </nav>
           </div>
 
-          <div className="!p-4">
+          <div className="mt-4">
             <div className="tab-content" id="myTabContent">
               {activeTab === "activity" && (
                 <div className="tab-pane show active fade !p-0 !border-0">

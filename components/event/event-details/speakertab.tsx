@@ -40,7 +40,10 @@ const SpeakersDetails = ({ event }: SpeakersDetailsProps) => {
               <tbody>
                 {event.speakers.length > 0 ? (
                   event.speakers.map(({ name, email, company }, index) => (
-                    <tr key={index} className="border hover:bg-gray-100">
+                    <tr
+                      key={index}
+                      className="border border-inherit border-solid hover:bg-gray-100 dark:border-defaultborder/10 dark:hover:bg-light"
+                    >
                       <td scope="row" className="!ps-4 !pe-5">
                         <input
                           className="form-check-input"

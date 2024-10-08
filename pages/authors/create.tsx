@@ -1,11 +1,9 @@
-// pages/authors/create.tsx
 import React from "react";
 import { authorsList } from "../../shared/data/authordata";
 import AuthorForm from "../../components/author/createauthor";
 
 const CreateAuthorPage = () => {
   const handleCreateAuthor = (newAuthor: any) => {
-    // Here, you would typically add the new author to your data source
     authorsList.push(newAuthor);
     console.log("Author created:", newAuthor);
   };

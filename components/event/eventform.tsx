@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
-import { FaSave } from "react-icons/fa";
+import { FaSave, FaTrash } from "react-icons/fa";
 import { Event } from "@/shared/types";
 import Seo from "@/shared/layout-components/seo/seo";
 import Pageheader from "@/shared/layout-components/page-header/pageheader";
@@ -21,7 +23,7 @@ const EventForm = ({ event }: EventFormProps) => {
     maxAttendees: event?.maxAttendees || 100,
     registrationDeadline: event?.registrationDeadline || "",
     agenda: event?.agenda || [{ time: "", activity: "" }],
-    speakers: event?.speakers || [],
+    speakers: event?.speakers || [{ name: "", email: "", company: "" }],
     sponsors: event?.sponsors || [""],
     relatedCohort: event?.relatedCohort || "",
     registrationFields: event?.registrationFields || ["Name", "Email"],
@@ -59,6 +61,28 @@ const EventForm = ({ event }: EventFormProps) => {
   const handleRemoveAgendaItem = (index: number) => {
     const newAgenda = formData.agenda.filter((_, i) => i !== index);
     setFormData({ ...formData, agenda: newAgenda });
+  };
+
+  const handleSpeakerChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: "name" | "email" | "company"
+  ) => {
+    const newSpeakers = [...formData.speakers];
+    newSpeakers[index][field] = e.target.value;
+    setFormData({ ...formData, speakers: newSpeakers });
+  };
+
+  const handleAddSpeaker = () => {
+    setFormData({
+      ...formData,
+      speakers: [...formData.speakers, { name: "", email: "", company: "" }],
+    });
+  };
+
+  const handleRemoveSpeaker = (index: number) => {
+    const newSpeakers = formData.speakers.filter((_, i) => i !== index);
+    setFormData({ ...formData, speakers: newSpeakers });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -237,7 +261,53 @@ const EventForm = ({ event }: EventFormProps) => {
             </button>
           </div>
 
-          {/* Buttons */}
+          {/* Speakers */}
+          <div className="md:col-span-12 col-span-12 mb-4">
+            <label className="form-label">Speakers</label>
+            {formData.speakers.map((speaker, index) => (
+              <div key={index} className="flex gap-2 mb-2">
+                <input
+                  type="text"
+                  value={speaker.name}
+                  onChange={(e) => handleSpeakerChange(index, e, "name")}
+                  className="form-control"
+                  placeholder="Enter speaker name"
+                  required
+                />
+                <input
+                  type="email"
+                  value={speaker.email}
+                  onChange={(e) => handleSpeakerChange(index, e, "email")}
+                  className="form-control"
+                  placeholder="Enter speaker email"
+                  required
+                />
+                <input
+                  type="text"
+                  value={speaker.company}
+                  onChange={(e) => handleSpeakerChange(index, e, "company")}
+                  className="form-control"
+                  placeholder="Enter speaker company"
+                />
+                <button
+                  type="button"
+                  className="ti-btn ti-btn-danger"
+                  onClick={() => handleRemoveSpeaker(index)}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+            <button
+              type="button"
+              className="ti-btn ti-btn-light"
+              onClick={handleAddSpeaker}
+            >
+              Add Speaker
+            </button>
+          </div>
+
+          {/* Submit Button */}
           <div className="col-span-12 mt-6 flex flex-row gap-4 justify-end mb-12">
             <button type="submit" className="ti-btn ti-btn-success ti-btn-lg">
               Save

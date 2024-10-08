@@ -116,16 +116,16 @@ const Events = () => {
                     </td>
                     <td className="px-4 py-2">{event.maxAttendees}</td>
                     <td className="p-2 flex flex-row gap-6">
-                      <button className="ti-btn ti-btn-md ti-btn-primary">
-                        <Link href={`/events/${event.id}`}>
+                      <Link href={`/events/${event.id}`}>
+                        <button className="ti-btn ti-btn-md ti-btn-primary">
                           <FaEye size={20} />
-                        </Link>
-                      </button>
-                      <button className="ti-btn ti-btn-md ti-btn-warning">
-                        <Link href={`/events/edit/${event.id}`}>
+                        </button>
+                      </Link>
+                      <Link href={`/events/edit/${event.id}`}>
+                        <button className="ti-btn ti-btn-md ti-btn-warning">
                           <FaPencilAlt size={20} />
-                        </Link>
-                      </button>
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                 ))}

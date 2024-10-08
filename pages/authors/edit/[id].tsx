@@ -19,7 +19,6 @@ const EditAuthorPage = () => {
   }, [id]);
 
   const handleEditAuthor = (updatedAuthor: Authors) => {
-    // Update the author in the data source
     const index = authorsList.findIndex((auth) => auth.id === updatedAuthor.id);
     if (index !== -1) {
       authorsList[index] = updatedAuthor;

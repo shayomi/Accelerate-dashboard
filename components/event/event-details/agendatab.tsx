@@ -21,6 +21,14 @@ const AgendaDetails = ({ event }: AgendaDetailsProps) => {
             <table className="table min-w-full whitespace-nowrap table-hover border table-bordered">
               <thead>
                 <tr className="border border-inherit border-solid dark:border-defaultborder/10">
+                  <th scope="row" className="!ps-4 !pe-5">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      value=""
+                      aria-label="..."
+                    />
+                  </th>
                   <th className="p-2">Time</th>
                   <th className="p-2">Activity</th>
                 </tr>
@@ -28,7 +36,18 @@ const AgendaDetails = ({ event }: AgendaDetailsProps) => {
               <tbody>
                 {event.agenda.length > 0 ? (
                   event.agenda.map(({ time, activity }, index) => (
-                    <tr key={index} className="border hover:bg-gray-100">
+                    <tr
+                      key={index}
+                      className="border border-inherit border-solid hover:bg-gray-100 dark:border-defaultborder/10 dark:hover:bg-light"
+                    >
+                      <td scope="row" className="!ps-4 !pe-5">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          value=""
+                          aria-label="..."
+                        />
+                      </td>
                       <td className="p-2">{time}</td>
                       <td className="p-2">{activity}</td>
                     </tr>

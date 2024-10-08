@@ -140,5 +140,10 @@ export interface Event {
   relatedCohort: string;
   registrationFields: string[];
   status: string;
-  registeredPeople: { name: string; email: string; company: string }[];
+  registeredPeople: {
+    name: string;
+    email: string;
+    company: string;
+    status: string;
+  }[];
 }
